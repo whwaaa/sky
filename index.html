@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1.0," name="viewport">
+		<title></title>
+		<style>
+			*{  
+				margin: 0;  
+				padding: 0;  
+			}  
+			html,body{  
+				height: 100%;  
+				width: 100%;  
+			}  
+			.background{  
+				height: 100%;  
+				width: 100%;  
+				background-image: url("https://z3.ax1x.com/2021/09/10/hObPuq.gif");
+				background-repeat: repeat-y;
+				background-position: 0 -60px;
+				background-size: 100% auto;
+				
+			}
+			.cover_bg{
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;  
+				background: white;
+				z-index: 1;
+			}
+			input{
+				position: fixed;
+				z-index: 2;
+				left: 50%;
+				-webkit-transform: translate(-50%,-50%);
+				-moz-transform: translate(-50%,-50%);
+				transform:translate(-50%,-50%);
+				border: none;
+			}
+			
+			input::-webkit-input-placeholder{
+				color:rgb(192,192,192);
+			}
+			.bz{
+				padding: 0 10px 0 10px;
+				top: 35%;
+				width: 150px;
+				height: 50px;
+				border-radius: 15px;
+				color: rgb(192,192,192);
+				background: rgba(155,128,128,0.2);
+			}
+			.bz:focus{
+		　　　　border-color: #ff962d !important;
+		　　　　outline: 0;
+		　　　　-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255,150,43,.6);
+		　　　　box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255,150,43,.6);
+			}
+			.sub{
+				top: 50%;
+				width: 100px;
+				height: 50px;
+				border-radius: 12px;
+				background: rgba(29,158,201,0.3);
+				font-size: 1.2rem;
+				color: rgba(255,255,255,0.6);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cover_bg"></div>
+		<div class="background">
+			<input class="bz" type="text" placeholder="备注(选填)" />
+			<input class="sub" type="button" value="踢我上线" />
+		</div>
+	</body>
+	
+	<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.js"></script>
+	<script>
+		window.onload = function(){
+			
+			$(".cover_bg").animate({
+			   opacity: 0
+			 }, 500);
+		}
+		$(function(){
+			$(".sub").on("click", function(){
+				var con = $(".bz").val();
+				$.get("http://wxpusher.zjiecode.com/api/send/message/", 
+				{ 
+					appToken: "AT_KqNQw7l4lzJ5bRmtPMSmDkbXXTKJRjP4",
+					content: "提醒光遇上线" + " \n备注:" + con,
+					uid: "UID_H6M8nBUuz66NNJOZkndpP8qyKtsR"
+				});
+				layer.msg("已将提醒推送到对方微信", {icon: 1})
+			})
+		})
+	</script>
+</html>
