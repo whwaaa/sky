@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta content="width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1.0," name="viewport">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 		<title></title>
 		<style>
 			*{  
@@ -78,7 +79,7 @@
 		</div>
 	</body>
 	
-	<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.js"></script>
 	<script>
 		window.onload = function(){
@@ -90,7 +91,7 @@
 		$(function(){
 			$(".sub").on("click", function(){
 				var con = $(".bz").val();
-				$.get("http://wxpusher.zjiecode.com/api/send/message/", 
+				$.get("https://wxpusher.zjiecode.com/api/send/message/", 
 				{ 
 					appToken: "AT_KqNQw7l4lzJ5bRmtPMSmDkbXXTKJRjP4",
 					content: "提醒光遇上线" + " \n备注:" + con,
